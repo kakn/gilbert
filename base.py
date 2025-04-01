@@ -7,10 +7,8 @@
 ░╚═════╝░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░ v1.1
 
 TODO:
-- Unplagarize
 - Uncomment
 - Find new data
-- Change name to Rigby
 - Improve loading animations
 - Choose different neural network
 - If below a certainty, say IDK
@@ -267,8 +265,8 @@ def gooey():
                 audio2 = r.listen(source2)
             name = r.recognize_google(audio2)
         except sr.UnknownValueError:
-            engine.say("I'm sorry, but that makes no fucking sense.")
-            print("GILBERT: I'm sorry, but that makes no fucking sense.")
+            engine.say("I'm sorry, I don't understand.")
+            print("GILBERT: I'm sorry, I don't understand.")
             engine.runAndWait()
             gooey()
     #print(name)
@@ -287,7 +285,7 @@ def gooey():
                 question = r.recognize_google(audio2)
             print('{n}: '.format(n=name.upper()) + question)
             if question == "terminate":
-                engine.say("No oh oh oh oh oh oh oh oh oh oh oh oh oh oh")
+                engine.say("Goodbye.")
                 break
                 engine.runAndWait()
                 convo = False
@@ -298,8 +296,8 @@ def gooey():
             with open("data_stored.txt", "a") as text_file:
                 text_file.write("{n}: ".format(n=name.upper()) + question + '\n' + "GILBERT: " + answer + '\n' + '\n')
         except sr.UnknownValueError:
-            print("GILBERT: I don't understand. Speak up, bitch.")
-            engine.say("I don't understand. Speak up, bitch.")
+            print("GILBERT: I'm sorry, I don't understand.")
+            engine.say("I'm sorry, I don't understand.")
             engine.runAndWait()
 
 # running functions
